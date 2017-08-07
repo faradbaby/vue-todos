@@ -1,46 +1,38 @@
 <template>
 <div id="app">
-  <div class="tabs">
-    <ul>
-      <li>
-        <!-- 使用router-link 指向定义的path -->
-        <router-link to='/home'>
-          <div class="">
-            首页
-          </div>
-        </router-link>
-      </li>
-      <li>
-        <router-link to='/categories'>
-          <div class="">
-            分类
-          </div>
-        </router-link>
-      </li>
-      <li>
-        <router-link to='/shopping-cart'>
-          <div class="">
-            购物车
-          </div>
-        </router-link>
-      </li>
-      <li>
-        <router-link to='/me'>
-          <div class="">
-            我
-          </div>
-        </router-link>
-      </li>
-    </ul>
-  </div>
   <div class="content">
     <router-view></router-view>
+  </div>
+  <div class="tabs">
+    <ul>
+      <!-- 使用router-link 指向定义的path -->
+      <router-link :to="{ name : 'Home' }" tag="li">
+        <div class="">
+          首页
+        </div>
+      </router-link>
+      <router-link :to="{ name : 'Explorer' }" tag="li">
+        <div class="">
+          分类
+        </div>
+      </router-link>
+      <router-link :to="{ name : 'Cart' }" tag="li">
+        <div class="">
+          购物车
+        </div>
+      </router-link>
+      <router-link :to="{ name : 'Me' }" tag="li">
+        <div class="">
+          我
+        </div>
+      </router-link>
+    </ul>
   </div>
 </div>
 </template>
 
 <script>
-// import './assets/less/todos.less';
+import './assets/less/base.less';
 import moment from 'moment'
 import 'moment/locale/zh-cn'
 moment.locale('zh-cn')
@@ -56,7 +48,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "./assets/less/base.less";
+@import "./assets/less/todos.less";
 @color-darkgray: #333;
 @color-gray: #666;
 @color-lighgray: #999;
@@ -66,7 +58,6 @@ h1 {
     text-align: center;
     color: @color-lighgray;
 }
-
 </style>
 
  <!-- lang="scss" -->
