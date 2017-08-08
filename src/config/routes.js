@@ -11,7 +11,7 @@ import Me from '../Me.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  { name: 'Home', path: '/home', component: Home },
+  { name: 'Home', path: '/', component: Home },
   { name: 'Categories', path: '/categories', component: Category },
   { name: 'Shoppingcart', path: '/shopping-cart', component: Shoppingcart },
   { name: 'Me', path: '/me', component: Me }
@@ -22,6 +22,6 @@ export default new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: routes,
-  linkActiveClass: 'active',
+  linkExactActiveClass: 'active',
   history: true
 })
