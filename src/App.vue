@@ -1,7 +1,9 @@
 <template>
 <div id="app">
   <div class="content">
-    <router-view></router-view>
+    <transition name="slide-fade">
+      <router-view></router-view>
+    </transition>
   </div>
   <div class="tabs">
     <ul>
@@ -11,12 +13,12 @@
           首页
         </div>
       </router-link>
-      <router-link :to="{ name : 'Explorer' }" tag="li">
+      <router-link :to="{ name : 'Categories' }" tag="li">
         <div class="">
           分类
         </div>
       </router-link>
-      <router-link :to="{ name : 'Cart' }" tag="li">
+      <router-link :to="{ name : 'Shoppingcart' }" tag="li">
         <div class="">
           购物车
         </div>
@@ -49,15 +51,6 @@ export default {
 
 <style lang="less" scoped>
 @import "./assets/less/todos.less";
-@color-darkgray: #333;
-@color-gray: #666;
-@color-lighgray: #999;
-
-h1 {
-    font-size: 50px;
-    text-align: center;
-    color: @color-lighgray;
-}
 </style>
 
  <!-- lang="scss" -->
