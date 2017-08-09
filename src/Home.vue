@@ -22,59 +22,16 @@
   </div>
   <div class="section">
     <!-- 新书上架 -->
-    <div class="book-list">
-      <div class="header">
-        <div class="heading">
-          最新更新
-        </div>
-        <div class="more">
-          更多…
-        </div>
-      </div>
-      <div class="book-items">
-        <div class="book" v-for="book in latestUpdated">
-          <div class="cover">
-            <img :src="book.img_url">
-          </div>
-          <div class="title">
-            {{ book.title }}
-          </div>
-          <div class="authors">
-            {{ book.authors | join }}
-          </div>
-        </div>
-      </div>
-    </div>
+    <book-list :books="latestUpdated" heading="最新更新"></book-list>
   </div>
   <div class="section">
     <!-- 编辑推荐 -->
-    <div class="book-list">
-      <div class="header">
-        <div class="heading">
-          编辑推荐
-        </div>
-        <div class="more">
-          更多…
-        </div>
-      </div>
-      <div class="book-items">
-        <div class="book" v-for="book in recommended">
-          <div class="cover">
-            <img :src="book.img_url">
-          </div>
-          <div class="title">
-            {{ book.title }}
-          </div>
-          <div class="authors">
-            {{ book.authors | join }}
-          </div>
-        </div>
-      </div>
-    </div>
+    <book-list :books="recommended" heading="编辑推荐"></book-list>
   </div>
 </div>
 </template>
 <script>
+import BookList from './component/BookList.vue'
 import Swiper from './assets/plugins/swiper/swiper.min.js'
 
 export default {
@@ -124,6 +81,9 @@ export default {
       ]
     }
   },
+  components: {
+    BookList
+  },
   mounted() {
     new Swiper(this.$refs.slider, {
       pagination: this.$refs.pagination,
@@ -136,8 +96,8 @@ export default {
   }
 }
 </script>
-
-<style lang="less" scoped>
+<!-- 此处样式是否增加scoped ？？？？ -->
+<style lang="less" >
 @import './assets/plugins/swiper/swiper.min.css';
 @import './assets/less/home.less';
 </style>
