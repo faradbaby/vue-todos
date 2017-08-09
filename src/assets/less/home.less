@@ -3,10 +3,18 @@
 .swiper-container {
   height: 160px;
   overflow: hidden;
+
+  .swiper-slide {
+    div {
+      img {
+        max-width: 100%;
+      }
+    }
+  }
 }
 
 .announcement {
-  padding: 10px 5px;
+  padding: 15px 10px;
 
   label {
     background: #eee;
@@ -21,7 +29,7 @@
 }
 
 .book-list {
-  padding: 10px 5px;
+  padding: 10px;
 
   .header {
     .heading {
@@ -40,5 +48,42 @@
       height: 0;
       clear: both;
     }
+  }
+
+  .book-items {
+    padding: 20px 0;
+
+    .book {
+      width: 32%;
+      float: left;
+      font-size: 12px;
+
+      .cover {
+        img {
+          max-width: 100%;
+        }
+      }
+
+      .authors {
+        color: #666;
+      }
+
+      &:first-child {
+        padding-right: 1%;
+      }
+      &:last-child{
+        padding-left: 1%;
+      }
+      &:nth-child(2){
+        padding: 0 1%;
+      }
+    }
+  }
+
+  &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
   }
 }

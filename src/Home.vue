@@ -89,37 +89,43 @@ export default {
       announcement: '今日上架的图书全部打折',
       slides: [{
           id: 1,
-          img_url: './assets/images/img1.png'
+          img_url: '../src/assets/images/img1.png'
         },
         {
           id: 2,
-          img_url: './assets/images/img2.png'
+          img_url: '../src/assets/images/img2.png'
         }
       ],
       latestUpdated: [{
           "id": 1,
           "title": "揭开数据真相：从小白到数据分析达人",
           "authors": [ "张某某", "刘某某" ],
-          "img_url": "./assets/images/img1.png"
+          "img_url": "../src/assets/images/book1.png"
         },
         {
           "id": 2,
           "title": "Android 高级进阶",
           "authors": [ "小小" ],
-          "img_url": "./assets/images/img2.png"
-        }
+          "img_url": "../src/assets/images/book2.png"
+        },
+        {
+            "id": 1,
+            "title": "揭开数据真相：从小白到数据分析达人",
+            "authors": [ "张某某", "刘某某" ],
+            "img_url": "../src/assets/images/book1.png"
+          }
       ],
       recommended: [{
           "id": 1,
           "title": "揭开数据真相：从小白到数据分析达人",
           "authors": [ "某某某", "某某某" ],
-          "img_url": "./assets/images/img1.png"
+          "img_url": "../src/assets/images/book1.png"
         },
         {
           "id": 2,
           "title": "Android 高级进阶",
           "authors": [ "大大" ],
-          "img_url": "./assets/images/img2.png"
+          "img_url": "../src/assets/images/book2.png"
         }
       ]
     }
