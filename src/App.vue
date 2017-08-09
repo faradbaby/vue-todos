@@ -51,6 +51,9 @@ export default {
 
 <style lang="less" scoped>
 @import "./assets/less/todos.less";
+#app{
+  width:100%;
+}
 </style>
 
  <!-- lang="scss" -->

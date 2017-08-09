@@ -1,0 +1,44 @@
+@import "base.less";
+
+.swiper-container {
+  height: 160px;
+  overflow: hidden;
+}
+
+.announcement {
+  padding: 10px 5px;
+
+  label {
+    background: #eee;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #666;
+  }
+
+  span {
+    padding-left: 15px;
+  }
+}
+
+.book-list {
+  padding: 10px 5px;
+
+  .header {
+    .heading {
+      float: left;
+    }
+
+    .more {
+      float: right;
+      color: #999;
+      font-size: 12px;
+    }
+
+    &:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      clear: both;
+    }
+  }
+}

@@ -5,34 +5,139 @@
       <!-- 热门推荐 -->
       <div class="swiper-container" ref="slider">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide" v-for="slide in slides">
+            <router-link tag="div" :to="{ name: 'BookDetail', params:{ id: slide.id } }">
+              <!-- 图片路径不对，未正确加载图片 -->
+              <img :src="slide.img_url">
+            </router-link>
+          </div>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination" ref="pagination"></div>
-    </div>
+      </div>
       <!-- 快讯 -->
+      <div class="announcement">
+        <label>快讯</label>
+        <span>{{ announcement }}</span>
+      </div>
     </div>
   </div>
   <div class="section">
     <div class="">
       <!-- 新书上架 -->
+      <div class="book-list">
+        <div class="header">
+          <div class="heading">
+            最新更新
+          </div>
+          <div class="more">
+            更多…
+          </div>
+        </div>
+        <div class="book-items">
+          <div class="book" v-for="book in latestUpdated">
+            <div class="cover">
+              <img :src="book.img_url">
+            </div>
+            <div class="title">
+              {{ book.title }}
+            </div>
+            <div class="authors">
+              {{ book.authors | join }}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="section">
     <div class="">
       <!-- 编辑推荐 -->
+      <div class="book-list">
+        <div class="header">
+          <div class="heading">
+            编辑推荐
+          </div>
+          <div class="more">
+            更多…
+          </div>
+        </div>
+        <div class="book-items">
+          <div class="book" v-for="book in recommended">
+            <div class="cover">
+              <img :src="book.img_url">
+            </div>
+            <div class="title">
+              {{ book.title }}
+            </div>
+            <div class="authors">
+              {{ book.authors | join }}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 </template>
-<style>
-
-</style>
 <script>
+import Swiper from './assets/plugins/swiper/swiper.min.js'
 
 export default {
-
+  data() {
+    return {
+      announcement: '今日上架的图书全部打折',
+      slides: [{
+          id: 1,
+          img_url: './assets/images/img1.png'
+        },
+        {
+          id: 2,
+          img_url: './assets/images/img2.png'
+        }
+      ],
+      latestUpdated: [{
+          "id": 1,
+          "title": "揭开数据真相：从小白到数据分析达人",
+          "authors": [ "张某某", "刘某某" ],
+          "img_url": "./assets/images/img1.png"
+        },
+        {
+          "id": 2,
+          "title": "Android 高级进阶",
+          "authors": [ "小小" ],
+          "img_url": "./assets/images/img2.png"
+        }
+      ],
+      recommended: [{
+          "id": 1,
+          "title": "揭开数据真相：从小白到数据分析达人",
+          "authors": [ "某某某", "某某某" ],
+          "img_url": "./assets/images/img1.png"
+        },
+        {
+          "id": 2,
+          "title": "Android 高级进阶",
+          "authors": [ "大大" ],
+          "img_url": "./assets/images/img2.png"
+        }
+      ]
+    }
+  },
+  mounted() {
+    new Swiper(this.$refs.slider, {
+      pagination: this.$refs.pagination,
+      paginationClickable: true,
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: 2500,
+      autoplayDisableOnInteraction: false
+    })
+  }
 }
 </script>
+
+<style lang="less" scoped>
+@import './assets/plugins/swiper/swiper.min.css';
+@import './assets/less/home.less';
+</style>
