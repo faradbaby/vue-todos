@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="book-items">
-    <div class="book" v-for="book in books">
+    <div class="book" v-for="book in books" @click="$emit('onBookSelect', book)">
       <div class="cover">
         <img :src="book.img_url">
       </div>

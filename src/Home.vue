@@ -22,7 +22,7 @@
   </div>
   <div class="section">
     <!-- 新书上架 -->
-    <book-list :books="latestUpdated" heading="最新更新"></book-list>
+    <book-list :books="latestUpdated" heading="最新更新" @onBookSelect="preview($event)"></book-list>
   </div>
   <div class="section">
     <!-- 编辑推荐 -->
@@ -79,6 +79,11 @@ export default {
           "img_url": "../src/assets/images/book2.png"
         }
       ]
+    }
+  },
+  methods: {
+    preview (book) {
+      alert("显示图书详情");
     }
   },
   components: {
