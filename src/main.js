@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './config/routes'
+import VueResource from 'vue-resource'
 
+Vue.use(VueResource)
 // import VueRouter from 'vue-router'
 // Vue.use(VueRouter)
 
@@ -22,7 +24,14 @@ import router from './config/routes'
 //   ]
 // })
 
+//针对IE6不能请求REST/HTTP请求方法
+Vue.http.options.emulateHTTP = true
+
 new Vue({
+  http: {
+    root: '/api',
+    headers: {}
+  },
   el: '#app',
   router,
   render: h => h(App)

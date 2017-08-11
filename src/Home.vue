@@ -37,52 +37,31 @@ import Swiper from './assets/plugins/swiper/swiper.min.js'
 export default {
   data() {
     return {
-      announcement: '今日上架的图书全部打折',
-      slides: [{
-          id: 1,
-          img_url: '../src/assets/images/img1.png'
-        },
-        {
-          id: 2,
-          img_url: '../src/assets/images/img2.png'
-        }
-      ],
-      latestUpdated: [{
-          "id": 1,
-          "title": "揭开数据真相：从小白到数据分析达人",
-          "authors": ["张某某", "刘某某"],
-          "img_url": "../src/assets/images/book1.png"
-        },
-        {
-          "id": 2,
-          "title": "Android 高级进阶",
-          "authors": ["小小"],
-          "img_url": "../src/assets/images/book2.png"
-        },
-        {
-          "id": 1,
-          "title": "揭开数据真相：从小白到数据分析达人",
-          "authors": ["张某某", "刘某某"],
-          "img_url": "../src/assets/images/book1.png"
-        }
-      ],
-      recommended: [{
-          "id": 1,
-          "title": "揭开数据真相：从小白到数据分析达人",
-          "authors": ["某某某", "某某某"],
-          "img_url": "../src/assets/images/book1.png"
-        },
-        {
-          "id": 2,
-          "title": "Android 高级进阶",
-          "authors": ["大大"],
-          "img_url": "../src/assets/images/book2.png"
-        }
-      ]
+      announcement: '',
+      slides: [],
+      latestUpdated: [],
+      recommended: []
     }
   },
+  created() {
+    this.$http.get('/src/api/home.json').then(res => {
+      this.announcement = res.body.announcement
+      this.slides = res.body.slides
+      this.latestUpdated = res.body.latestUpdated
+      this.recommended = res.body.recommended
+    })
+
+// 简写失败，待解决
+    // this.$http.get('/src/api/home.json').then( (res)=> {
+    //   for prop in res.body {
+    //     this[prop] = res.body[prop]
+    //   }
+    // }, (error)=> {
+    //   console.log('获取数据失败：${error}')
+    // })
+  },
   methods: {
-    preview (book) {
+    preview(book) {
       alert("显示图书详情");
     }
   },
