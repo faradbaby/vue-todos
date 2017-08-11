@@ -44,6 +44,16 @@ export default {
     }
   },
   created() {
+    // jquery方法请求数据成功
+    // var self = this
+    // $.get('/src/api/home.json').then(res => {
+    //   self.announcement = res.announcement
+    //   self.slides = res.slides
+    //   self.latestUpdated = res.latestUpdated
+    //   self.recommended = res.recommended
+    // })
+
+    // 传统vue-resource请求数据成功
     this.$http.get('/src/api/home.json').then(res => {
       this.announcement = res.body.announcement
       this.slides = res.body.slides
@@ -51,7 +61,7 @@ export default {
       this.recommended = res.body.recommended
     })
 
-// 简写失败，待解决
+    // 简写失败，待解决
     // this.$http.get('/src/api/home.json').then( (res)=> {
     //   for prop in res.body {
     //     this[prop] = res.body[prop]
