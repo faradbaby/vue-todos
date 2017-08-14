@@ -22,6 +22,6 @@ export default new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: routes,
-  linkExactActiveClass: 'active',
+  linkActiveClass: 'active',
   history: true
 })

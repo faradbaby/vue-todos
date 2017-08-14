@@ -28,11 +28,25 @@
     <!-- 编辑推荐 -->
     <book-list :books="recommended" heading="编辑推荐"></book-list>
   </div>
+  <!-- <modal-dialog ref="dialog"
+                @dialogClose="selected=undefined">
+    <div slot="header">
+      <div class="dismiss"
+            @click.prevent="$refs.dialog.close()"></div>
+    </div>
+    <div>
+      <img :src="selected.img_url">
+    </div>
+    <div>
+      {{ selected.title }}
+    </div>
+  </modal-dialog> -->
 </div>
 </template>
 <script>
 import BookList from './component/BookList.vue'
 import Swiper from './assets/plugins/swiper/swiper.min.js'
+import ModalDialog from './component/dialog.vue'
 
 export default {
   data() {
@@ -40,7 +54,8 @@ export default {
       announcement: '',
       slides: [],
       latestUpdated: [],
-      recommended: []
+      recommended: [],
+      selected:undefined
     }
   },
   created() {
@@ -72,11 +87,13 @@ export default {
   },
   methods: {
     preview(book) {
-      alert("显示图书详情");
+      this.selected = book
+      this.$refs.dislog.open()
     }
   },
   components: {
-    BookList
+    BookList,
+    ModalDialog
   },
   mounted() {
     new Swiper(this.$refs.slider, {

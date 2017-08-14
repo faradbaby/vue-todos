@@ -54,6 +54,9 @@ export default {
 #app{
   width:100%;
 }
+.content{
+  padding-bottom:32px;
+}
 </style>
 
  <!-- lang="scss" -->
